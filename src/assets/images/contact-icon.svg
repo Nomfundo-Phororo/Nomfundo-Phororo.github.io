@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" fill="none" viewBox="0 0 500 500">
+  <rect x="10" y="10" width="420" height="425" rx="20" ry="20" fill="none" stroke="black" stroke-width="18"/>
+<g stroke-linejoin="round" stroke-width="15">
+    <path stroke="#121331" d="M55 350c0-63.513 51.487-115 115-115h90c63.513 0 115 51.487 115 115v25H55z"/>
+<path stroke="#66eece" stroke-linecap="round" stroke-miterlimit="20" 
+d="M272.496 76.733C283.423 89.78 290 106.648 290 125c0 41.478-33.628 75-75 75s-75-33.628-75-75 33.628-75 75-75c23.126 0 43.706 10.396 57.496 26.733"/>
+</g>
+
+  <!-- Vertical Tabs on the Side -->
+  <line x1="460" y1="40" x2="460" y2="100" stroke="#66eece" stroke-width="15"/>
+  <line x1="460" y1="100" x2="460" y2="250" stroke="#66eece" stroke-width="15"/>
+  <line x1="460" y1="160" x2="460" y2="400" stroke="#66eece" stroke-width="15"/>
+</svg>

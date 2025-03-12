@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --grey-stoke: #EDEEF0;
+    --lightest-grey: #DCDEE3;
+    --background-grey: #F9FAFC;
+    --q-blue: #164669;
+    --grey: #EEF2FB;
+    --grey-text: #616872;
+    --light-cyan: #33A4F540;
+    --lighter-cyan: #DAEFFE;
+    --cyan: #33A4F5;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica', 'sans-serif';
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+}
