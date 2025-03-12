@@ -1,55 +1,158 @@
-<!-- <div class="w-full flex flex-col h-screen p-8 backgound" >
-  <header class="w-full h-14"> header placeholder</header>
-<div class="h-full w-full flex">
-  <aside class="flex flex-col max-w-[30rem] w-[30rem] h-full overflow-auto  pr-4 pl-0 relative">
-    <img class=" mx-auto w-64 h-64 absolute left-8 rounded-3xl" src="assets/images/myPicture.jpg">
-    <div class="bg-white h-full mt-28 rounded-3xl pt-40 px-4 w-full flex flex-col items-center gap-5">
-      <h3 class="text-lg text">Nomfundo Phororo</h3>
-      <span class="bg-slate-100 text-black px-3 py-1 rounded-md text-sm font-semibold">Software Developer</span>
-      <div class="flex gap-5"> 
-        <span class="p-1.5 bg-slate-100 my-2 rounded-md"> <img class="w-9 h-9" src="assets/images/icon-goku.svg" alt="icon-goku"></span>
-        <span class="p-6 bg-slate-100 my-2 rounded-md"></span>
-        <span class="p-6 bg-slate-100 my-2 rounded-md"></span>
-        <span class="p-6 bg-slate-100 my-2 rounded-md"></span>
-      </div>
-      <div class="divide-y-2 bg-slate-100 px-4 rounded-md w-full flex flex-col ">
-        <div class="flex gap-4 items-center"><span class="p-6 bg-white my-2"></span> <span class=""><p class="text-[10px]">Phone</p><p class="text-xs">0765454615</p></span></div>
-        <div class="flex gap-4 items-center"><span class="p-6 bg-white my-2"></span> <span class=""><p class="text-[10px]">Email</p><p class="text-xs">precious.phororo&#64;gmail.com</p></span></div>
-        <div class="flex gap-4 items-center"><span class="p-6 bg-white my-2"></span> <span class=""><p class="text-[10px]">Location</p><p class="text-xs">Pretoria, Gauteng</p></span></div>
-      </div>
-      <button class="bg-[#33A4F5] px-10 py-3 rounded-md text-white">Download CV</button>
-    </div>
-  </aside>
-  <main class="flex flex-col grow w-full h-full  px-8 pt-28">
-   <div class="h-full bg-white rounded-3xl ">
-    <router-outlet />
-   </div>
-  </main>
-  <aside class="flex flex-col w-[14rem] h-fit overflow-auto  px-4 pt-28">
-    <div class="bg-white h-full rounded-2xl flex flex-col gap-5 p-5"> 
-      <a routerLink="/about" class="bg-slate-100 h-16 rounded-xl flex flex-col items-center p-2 gap-1"> 
-        <img class=" mx-auto w-7 h-7" src="assets/images/avatar-icon.svg">
-        <p class="text-sm">About</p>
-      </a>
-      <a routerLink="/resume" class="bg-slate-100 h-16 rounded-xl flex flex-col items-center p-2 gap-1"> 
-        <img class=" mx-auto w-7 h-7" src="assets/images/document.svg">
-        <p class="text-sm">Resume</p>
-      </a>
-      <a routerLink="/contact" class="bg-slate-100 h-16 rounded-xl flex flex-col items-center p-2 gap-1"> 
-        <img class=" mx-auto w-6 h-6" src="assets/images/contact-icon.svg">
-        <p class="text-sm">Contact</p>
-      </a>
-    </div>
-  </aside>
-</div>
-</div> -->
-
 <div class="bg-white w-full h-screen relative overflow-auto ">
   <header class=" h-20 container mx-auto w-full">
-    <app-header></app-header>
+<div class="flex items-center justify-between h-full ">
+    <img  src="assets/images/Logo.svg">
+      <div class="plate plate1 lg:hidden flex items-center" onclick="this.classList.toggle('active')" (click)="isMobileMenuOpen=!isMobileMenuOpen">
+        <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+          <path class="line line1" d="M 30,65 H 70"/>
+          <path class="line line2" d="M 70,50 H 30 C 30,50 18.644068,50.320751 18.644068,36.016949 C 18.644068,21.712696 24.988973,6.5812347 38.79661,11.016949 C 52.604247,15.452663 46.423729,62.711864 46.423729,62.711864 L 50.423729,49.152542 L 50.423729,16.101695"/>
+          <path class="line line3" d="M 30,35 H 70 C 70,35 80.084746,36.737688 80.084746,25.423729 C 80.084746,19.599612 75.882239,9.3123528 64.711864,13.559322 C 53.541489,17.806291 54.423729,62.711864 54.423729,62.711864 L 50.423729,49.152542 V 16.101695"/>
+        </svg>
+        <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+          <path class="line" d="M 34,32 L 66,68" />
+          <path class="line" d="M 66,32 L 34,68" />
+        </svg>
+      </div>
+      <div *ngIf="isMobileMenuOpen" class="fixed z-10 top-[4.5rem] left-0 w-full inline-block lg:hidden h-screen py-12 flex-grow mobile__sub-menu-reveal bg-white">
+        <nav class="flex flex-col gap-5 justify-start container mx-auto">
+            <ul class="flex flex-col text-sm font-bold items-start">
+
+              <a *ngFor="let item of menuItems" class="flex items-center w-full justify-between border-b h-10 hover:bg-slate-100" [href]="item.link"><li>{{item.title}}</li> <img class="float-end " src="assets/images/right.svg"></a>
+            </ul>
+            <button class="bg-black text-base rounded-md text-white px-5 py-2 gap-8 flex items-center w-fit">Resume
+              <img class="w-3.5 pb-1" src="assets/images/icon-download.svg">
+  
+            </button>
+        </nav>
+    </div>
+  </div>
   </header>
   <div class="h-full  mb-20">
-    <router-outlet />
+    
+<div class="mt-20">
+  <section class="flex lg:flex-row  flex-col-reverse items-center w-full justify-between container mx-auto">
+      <div class="mt-20">
+          <h1 class="text-5xl leading-[4rem] align-top"><span class="text-xl -mb-8 pl-1">Hello, my name is</span>
+              <br><span class="font-bold text-[2.8rem] mb-8">Nomfundo
+                  Phororo.</span> <br>
+              <span class="title-stroke text-white">I'm a </span>
+              <span class="font-bold">Frontend</span> <span class="title-stroke text-white">
+                  Developer</span> <br> based in <span class="font-bold">Gauteng</span>
+          </h1>
+          <p class="text-zinc-500 text-sm">Results-driven Frontend Developer with expertise in Angular, React, and
+              Svelte. Passionate about creating scalable, high-performance web applications and optimizing UI/UX. A
+              problem-solver who thrives in fast-paced environments, continuously improving skills and staying updated
+              with industry trends.
+          </p>
+          <div class="mt-10 flex gap-5">
+              <img class="w-8 my-auto" src="assets/images/linkedin.svg">
+              <img class="w-7 my-auto" src="assets/images/email.svg">
+              <img class="w-7 my-auto" src="assets/images/github.svg">
+          </div>
+      </div>
+      <img class="float-end lg:block hidden" src="assets/images/Banner.svg">
+      <img class="float-end lg:hidden block w-[20rem]" src="assets/images/Banner.svg">
+  </section>
+
+  <section class="bg-black text-white mt-20 py-20">
+      <h1 class="text-3xl leading-[5rem] items-center gap-2 justify-start container mx-auto"><span class="subtitle-stroke-white text-white text-xl">01.</span>
+          My<span class="font-bold"> Experience</span></h1>
+      <div class="p-4 gap-4 grid grid-cols-2 container mx-auto">
+          <div class="border-2 border-zinc-500 rounded-md p-4 flex flex-col h-fit"
+              *ngFor="let item of workExperience  | slice:0: showMore">
+              <div class="flex py-5 px-4 gap-5 items-center w-full ">
+                  <img class="float-end w-9 h-9 mx-auto" [src]="'assets/images/'+item.imageName">
+                  <h4 class="grow text-white">{{item.title +' | ' + item.company}}</h4>
+              </div>
+              <p class="text-zinc-400 text-sm px-4 pb-6">{{item.responsibilities}}</p>
+              <a class="self-end text-zinc-300 text-xs bg-">{{item.duration}}</a>
+          </div>
+      </div>
+      <div class=" flex flex-col justify-center w-full mt-8" *ngIf="showMore !== workExperience.length">
+          <img class="float-end w-11 h-11 mx-auto rounded-full border-2 animate-bounce border-white"
+              [src]="'assets/images/down_icon.svg'">
+          <button class="underline py-4 px-6 rounded-md" (click)="showMore = workExperience.length">See More</button>
+      </div>
+  </section>
+  <section class="my-8 flex gap-20 container mx-auto">
+      <img class="float-left h-96 mr-4" [src]="'assets/images/about-me.svg'">
+
+<div>
+  <h1 class="text-3xl leading-none mb-2 text-start"> <span class="subtitle-stroke text-white text-xl">02.</span> About<span class="font-bold"> Me</span></h1>
+  <p class="text-zinc-400 text-sm ">I am currently working as a <span class="text-black">Frontend Developer</span> with a background in BCom Information Systems from
+      the University of Johannesburg.
+      I specialize in Angular, React, TypeScript, and Node.js, with a strong focus on building scalable,
+      high-performance<span class="text-black"> web applications</span> that enhance user experience and maintainability.
+      I have worked on various projects, including developing internal frontend libraries at BMW Group FG and
+      creating functional, reusable components at Quintessence.
+      <br> <br>
+      My experience also includes participating in high-impact hackathons, such as the 2019 NDP2030 <span class="text-black">GovTech SITA
+          Hackathon</span> (1st Place, R100,000 Prize) and the 2018 <span class="text-black">DPSA Hackathon</span> (2nd Place, R30,000 Prize), where my team
+      and I developed innovative digital solutions to real-world challenges.
+      <br> <br>
+      Beyond coding, I am passionate about <span class="text-black">leadership</span>, and <span class="text-black">innovation</span>. I have served as Head Mentor at
+      UJ’s Ndlovukazi Ladies’ Residence, where I guided and supported first-year students in their transition to
+      university life. Additionally, I have led multiple software projects and engaged in discussions on
+      technology, digital transformation, and the Fourth Industrial Revolution.
+      <br> <br>
+      I am always eager to learn, collaborate, and build impactful digital solutions that push the boundaries of
+      technology. Feel free to explore my portfolio and projects to see my work in action!
+  </p>
+</div>
+
+  </section>
+  <section class="flex flex-col  mb-20 container mx-auto lg:-mt-14">
+      <h1 class="text-3xl leading-[5rem] flex items-center gap-2"><span class="subtitle-stroke text-white text-xl">03.</span> My<span class="font-bold"> Skills</span></h1>
+
+      <div class="skills-container">
+          <div class="skill-category" *ngFor="let category of skillCategories">
+              <h3>{{ category.title }}</h3>
+              <ul>
+                  <li *ngFor="let skill of category.skills"><span class="text-xl">▹</span>{{ skill }}</li>
+              </ul>
+          </div>
+      </div>
+
+  </section>
+  <section class="bg-black text-white py-20 ">
+      <h1 class="text-3xl leading-[5rem] flex items-center gap-2 mb-10 container mx-auto"><span class="subtitle-stroke-white text-white text-xl">04.</span>My<span class="font-bold"> Projects</span>
+      </h1>
+      <div class="grid grid-cols-3 gap-y-5 gap-x-10 container mx-auto">
+      <div class="border border-white rounded flex flex-col gap-3 p-2 hover:scale-105 duration-100 ease-linear" *ngFor="let project of projects">
+          <div class="flex justify-between"><img class="float-left h-10 w-10" [src]="'assets/images/folder.svg'">
+              <a [href]="project.link"><img class="w-4 bg-slate-500 rounded-md justify-self-start mt-2"
+                  src="assets/images/link-icon.svg"></a></div>
+                  <h4 class="text-xl">
+                      {{project.title}}
+                  </h4>
+                  <p class="text-xs text-zinc-400">{{project.description}}</p>
+                  <div class="flex gap-3 flex-wrap justify-self-end">
+                      @for(tech of project.technologies;track $index){
+                          <p class="px-2 bg-white/50 h-fit rounded">{{tech}}</p>
+                      }
+                  </div>
+      </div>
+      </div>
+  </section>
+  <div class="py-10 container mx-auto  flex flex-col  justify-center items-center gap-4 text-center my-20 ">
+
+      <h1 class="lg:text-6xl lg:leading-[4rem] text-4xl leading-8 font-extrabold">Let's <span
+              class="title-stroke text-white font-normal">talk</span><span class="font-extrabold"> for</span><br>
+          Something special</h1>
+      <p class="text-base text-zinc-500 h-fit">I seek to push the limits of creativity to create high-engaging,
+          user-friendly, and memorable interactive experiences.</p>
+      <div class="lg:text-2xl text-lg  w-full font-bold break-words">
+          <h3>precious.phororo&#64;gmail.com</h3>
+          <h3>(076) 5454 615</h3>
+      </div>
+      <a href="mailto:precious.phroro@gmail.com"  target="_top"
+          class="bg-black rounded-md px-6 text-white py-2.5 flex text-xs lg:w-fit w-full mb-4 justify-center hover:scale-105 duration-200 ease-linear">Get In
+          Touch</a>
+
+
+
+  </div>
+</div>
     <footer class="h-40 mt-20  bg-black">
       <div class="flex items-center justify-between h-full container mx-auto text-white">
         <img src="assets/images/Logo-white.svg">
